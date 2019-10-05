@@ -1,10 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 import UserCard from './Components/UserCard.js';
+import FollowerBar from './Components/FollowerBar';
+import FollowerList from './Components/FollowerList';
 import styled from 'styled-components';
-import { Divider, Box } from '@material-ui/core';
+import { Divider, Box }  from '@material-ui/core';
 
-const FollowersSection = styled.section`
+const Followers = styled.section`
   margin-top: 50px;
 `;
 
@@ -76,6 +78,12 @@ class App extends React.Component {
                   contributionsOn={this.state.contributionsOn} 
                   user={this.state.user} 
                   />
+        <Followers>
+        <Divider />
+        <FollowerBar />
+        <FollowerList followers={this.state.followers} 
+                      handleClick={this.handleClick} />
+        </Followers>
       </Box>
     );
   }
