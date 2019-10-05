@@ -3,6 +3,7 @@ import axios from 'axios';
 import UserCard from './Components/UserCard.js';
 import FollowerBar from './Components/FollowerBar';
 import FollowerList from './Components/FollowerList';
+import Top from './Components/Top';
 import styled from 'styled-components';
 import { Divider, Box }  from '@material-ui/core';
 
@@ -74,6 +75,7 @@ class App extends React.Component {
   render() {
     return (
       <Box>
+        <Top />
         <UserCard toggleContributions={this.toggleContributions} 
                   contributionsOn={this.state.contributionsOn} 
                   user={this.state.user} 
