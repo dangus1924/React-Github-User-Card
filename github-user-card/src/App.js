@@ -9,23 +9,18 @@ const FollowersSection = styled.section`
 `;
 
 class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      userName: 'dangus1924', 
-      user: [],
-      followers: [],
-      searchInput: '',
-      contributionsOn: false
-    } 
-
-  } 
   
+  state = {
+    userName: 'dangus1924', 
+    user: [],
+    followers: [],
+    searchInput: '',
+    contributionsOn: false
+  }
   
-  componentDidMount() {
+  GrabUser = () => {
     axios.get(`https://api.github.com/users/${this.state.userName}`)
       .then(res => {
-        console.log(res)
         this.setState({user: res.data})
         return res.data.followers_url; 
       })
@@ -34,21 +29,17 @@ class App extends React.Component {
           .then(res => this.setState({followers: res.data})) 
       })
       .catch(err => alert(err));
+
+  }
+  
+  componentDidMount() {
+    this.GrabUser()
   }
 
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.userName !== this.state.userName) {
-      axios.get(`https://api.github.com/users/${this.state.userName}`)
-        .then(res => {
-          this.setState({user: res.data})
-          return res.data.followers_url;
-        })
-        .then(followersURL => {
-          axios.get(followersURL)
-            .then(res => this.setState({followers: res.data}))
-        })
-        .catch(err => alert(err));
+   this.GrabUser()
     }
   };
   
