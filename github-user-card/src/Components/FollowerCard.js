@@ -16,9 +16,14 @@ const FollowerCard = ( { follower, handleClick } ) => {
     return (
         <Card onClick={() => handleClick(follower)} className={classes.card}>
             <CardActionArea>
-                <CardMedia component='img' image={follower.avatar_url} alt='current follower profile' title='current follower profile' />
+                <CardMedia component='img' 
+                            image={follower.avatar_url} 
+                            alt='current follower profile' 
+                            title='current follower profile' />
                 <CardContent>
-                    <Typography gutterBottom variant='h5' component='h2'>{`@${follower.login}`}</Typography>
+                    <Typography gutterBottom variant='h5' 
+                                component='h2'>{`@${follower.login}`}
+                    </Typography>
                 </CardContent>
             </CardActionArea>         
         </Card>

@@ -68,7 +68,6 @@ class App extends React.Component {
       userName: (this.state.searchInput === '' ? 'dangus1924' : this.state.searchInput)
     })
   }
-
   
   toggleContributions = () => {
     this.setState({

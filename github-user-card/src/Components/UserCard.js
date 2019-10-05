@@ -17,21 +17,46 @@ const useStyles = makeStyles({
 const UserCard = ( { user, contributionsOn, toggleContributions } ) => {
     const classes = useStyles();
     return (
-        <Box display='flex' flexDirection='column' justifyContent='center' alignItems='center'>
-            <Card onClick={toggleContributions} className={contributionsOn ? classes.cardHidden : classes.cardVisible}>
+        <Box display='flex' 
+            flexDirection='column' 
+            justifyContent='center' 
+            alignItems='center'
+        >
+            <Card onClick={toggleContributions} 
+                  className={contributionsOn ? classes.cardHidden : classes.cardVisible}>
                 <CardActionArea>
-                    <CardMedia component='img' image={user.avatar_url} alt='current user profile' title='current user profile' />
+                    <CardMedia component='img' 
+                               image={user.avatar_url} 
+                               alt='current user profile' 
+                               title='current user profile' />
                     <CardContent>
-                        <Typography gutterBottom variant='h5' component='h2'>{user.name}</Typography>
-                        <Typography variant='body2' color='textSecondary' component='p'>{user.bio}</Typography>
+                        <Typography gutterBottom variant='h5' 
+                                    component='h2'
+                                    >{user.name}
+                        </Typography>
+                        <Typography variant='body2' 
+                                    color='textSecondary' 
+                                    component='p'
+                                    >{user.bio}
+                        </Typography>
                     </CardContent>
                     <CardContent>
-                        <Typography variant='subtitle1' component='sub'>Followed by {user.followers} people</Typography>
-                        <Typography variant='subtitle1' component='sub'>Following {user.following} people</Typography>
+                        <Typography variant='subtitle1' 
+                                    component='sub'
+                                    >Followed by {user.followers} people
+                        </Typography>
+                        <br></br>
+                        <Typography variant='subtitle1' 
+                                    component='sub'>Following {user.following} people
+                        </Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size='small' color='primary'><a href={user.html_url}>Github &rarr;</a></Button>
+                    <Button size='small' 
+                            color='primary'
+                            ><a href={user.html_url}>
+                                Github &rarr;</a>
+                    </Button>
                 </CardActions>          
             </Card>
         </Box>
