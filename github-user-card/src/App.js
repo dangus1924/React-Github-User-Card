@@ -3,9 +3,13 @@ import axios from 'axios';
 import UserCard from './Components/UserCard.js';
 import FollowerBar from './Components/FollowerBar';
 import FollowerList from './Components/FollowerList';
+import SearchForm from './Components/SearchForm';
 import Top from './Components/Top';
+
 import styled from 'styled-components';
 import { Divider, Box }  from '@material-ui/core';
+import GithubChart from './Components/GitHub';
+
 
 const Followers = styled.section`
   margin-top: 50px;
@@ -76,6 +80,13 @@ class App extends React.Component {
     return (
       <Box>
         <Top />
+        <SearchForm handleSubmit={this.handleSubmit} 
+                    searchInput={this.state.searchInput} 
+                    handleChange={this.handleChange} 
+                    />
+        <GithubChart toggleContributions={this.toggleContributions} 
+                contributionsOn={this.state.contributionsOn} 
+                user={this.state.user} />
         <UserCard toggleContributions={this.toggleContributions} 
                   contributionsOn={this.state.contributionsOn} 
                   user={this.state.user} 
